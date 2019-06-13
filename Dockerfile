@@ -19,6 +19,7 @@ RUN ssh-keygen -t rsa -b 4096 -f  /etc/ssh/ssh_host_key
 RUN sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 RUN mkdir -p /home/workspace/
 ADD .profile /root/.zprofile
+ADD sshconfig /root/.ssh/config
 RUN sed -i 's/\/root:\/bin\/ash/\/root:\/bin\/zsh/' /etc/passwd
 ADD .vimrc /root/.vimrc
 WORKDIR /home/workspace/
