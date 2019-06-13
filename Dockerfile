@@ -16,9 +16,11 @@ RUN sed -ir 's/#HostKey \/etc\/ssh\/ssh_host_ecdsa_key/HostKey \/etc\/ssh\/ssh_h
 RUN sed -ir 's/#HostKey \/etc\/ssh\/ssh_host_ed25519_key/HostKey \/etc\/ssh\/ssh_host_ed25519_key/g' /etc/ssh/sshd_config
 RUN /usr/bin/ssh-keygen -A
 RUN ssh-keygen -t rsa -b 4096 -f  /etc/ssh/ssh_host_key
-
+RUN sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 RUN mkdir -p /home/workspace/
-ADD .profile /root/.profile
+ADD .profile /root/.zprofile
+RUN sed -i 's/\/root:\/bin\/ash/\/root:\/bin\/zsh/' /etc/passwd
+ADD .vimrc /root/.vimrc
 WORKDIR /home/workspace/
 EXPOSE 22
 CMD ["/usr/sbin/sshd","-D"]
