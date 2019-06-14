@@ -5,6 +5,7 @@ RUN apk add -U --no-cache \
 	    curl less man \
 	    docker \
 	    openssh bash \
+	    ctags \
 && sed -i s/#PermitRootLogin.*/PermitRootLogin\ yes/ /etc/ssh/sshd_config \
 && echo "root:root" | chpasswd \
 && rm -rf /var/cache/apk/*
