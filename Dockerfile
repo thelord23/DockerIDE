@@ -23,9 +23,10 @@ ADD .profile /root/.zprofile
 ADD sshconfig /root/.ssh/config
 RUN sed -i 's/\/root:\/bin\/ash/\/root:\/bin\/zsh/' /etc/passwd
 ADD .vimrc /root/.vimrc
+
 #installing YankRing plugin
-RUN git clone https://github.com/vim-scripts/YankRing.vim.git
-RUN mkdir -p /root/.vim/doc; mkdir -p /root/.vim/plugin; cp -p YankRing.vim/plugin/yankring.vim  /root/.vim/plugin/; cp -p YankRing.vim/doc/yankring.txt  /root/.vim/doc/;rm -r YankRing.vim
+RUN git clone https://github.com/vim-scripts/YankRing.vim.git; mkdir -p /root/.vim/doc; mkdir -p /root/.vim/plugin; cp -p YankRing.vim/plugin/yankring.vim  /root/.vim/plugin/; cp -p YankRing.vim/doc/yankring.txt  /root/.vim/doc/;rm -r YankRing.vim
+
 WORKDIR /home/workspace/
 EXPOSE 22
 CMD ["/usr/sbin/sshd","-D"]
