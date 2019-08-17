@@ -13,3 +13,5 @@ nnoremap ,tf :tabf **/*<C-z><S-Tab>
 
 nnoremap ,g :grep! -nrI --exclude-dir="\.git" --exclude=tags <cword> ./<CR>
 nnoremap ,cg :grep! -nrI --exclude-dir="\.git" --exclude=tags  ./<Left><Left><Left>
+
+nnoremap ,/ :s/\//\\\//g<CR>
