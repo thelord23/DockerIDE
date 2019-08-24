@@ -10,7 +10,7 @@ nnoremap ,te :tabe **/*<C-z><S-Tab>
 nnoremap ,f :find **/*<C-z><S-Tab>
 nnoremap ,tf :tabf **/*<C-z><S-Tab>
 
-nnoremap ,g :grep! -nrI --exclude-dir="\.git" --exclude=tags <cword> ./<CR>
+nnoremap ,g :grep! -nrI --exclude-dir="\.git" --exclude=tags <cword> ./<CR><CR>:copen<CR>
 nnoremap ,cg :grep! -nrI --exclude-dir="\.git" --exclude=tags  ./<Left><Left><Left>
 
 nnoremap ,/ :s/\//\\\//g<CR>
